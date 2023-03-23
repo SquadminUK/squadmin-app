@@ -95,11 +95,12 @@ android {
 
     namespace "com.squadminapp"
     defaultConfig {
-        applicationId "com.squadminapp"
+        applicationId "com.squadmin.android"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [auth0Domain: "squadmin-dev.eu.auth0.com", auth0Scheme: "${applicationId}"]
     }
 
     splits {
