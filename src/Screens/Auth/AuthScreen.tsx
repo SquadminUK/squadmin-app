@@ -4,7 +4,7 @@ import {useAuth0} from 'react-native-auth0';
 import Screen from '../../Components/Screen/Screen';
 
 const LoginButton = ({navigation}) => {
-  const {authorize} = useAuth0();
+  const {authorize, user} = useAuth0();
 
   const onPress = async () => {
     // try {
