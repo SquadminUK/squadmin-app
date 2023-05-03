@@ -1,0 +1,8 @@
+enum EVENT_STATE {
+  DRAFT,
+  CREATED,
+  CANCELLED,
+  REQUIRES_APPROVAL,
+}
+
+export default EVENT_STATE;
