@@ -9,18 +9,16 @@ const GetStarted = ({navigation}) => {
   return (
     <Screen>
       <View style={styles.getStartedContainer}>
-        <View style={styles.getStartedTextContainer}>
-          <Text style={fonts.heading}>Squadmin</Text>
-          <Text style={fonts.subheading}>Organising games effortlessly</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton
-            title={'Get started'}
-            onPress={() => {
-              navigation.navigate('Auth');
-            }}
-          />
-        </View>
+        <Text style={fonts.heading}>Squadmin</Text>
+        <Text style={fonts.subheading}>Organising games effortlessly</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <PrimaryButton
+          title={'Get started'}
+          onPress={() => {
+            navigation.navigate('Auth');
+          }}
+        />
       </View>
     </Screen>
   );

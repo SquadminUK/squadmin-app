@@ -1,7 +1,7 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from 'react-native';
 import {useAuth0} from 'react-native-auth0';
+import Screen from '../../Components/Screen/Screen';
 
 const LoginButton = ({navigation}) => {
   const {authorize} = useAuth0();
@@ -27,9 +27,9 @@ const LoginButton = ({navigation}) => {
 
 const AuthScreen = ({navigation}) => {
   return (
-    <SafeAreaView>
+    <Screen>
       <LoginButton navigation={navigation} />
-    </SafeAreaView>
+    </Screen>
   );
 };
 

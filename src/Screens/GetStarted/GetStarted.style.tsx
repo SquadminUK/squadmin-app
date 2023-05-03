@@ -1,20 +1,35 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../Colors/Colors';
 
 const styles = StyleSheet.create({
   getStartedContainer: {
-    display: 'flex',
-    // flex: 1,
-    // flexDirection: 'column',
-    // justifyContent: 'space-between',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   getStartedTextContainer: {
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonContainer: {
     // alignSelf: 'flex-start',
     // justifyContent: 'flex-end',
+  },
+  brandingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  brandingTitle: {
+    color: Colors.white,
+    // fontFamily: fonts.PoppinsSemiBold,/
+    fontSize: 32,
+  },
+  brandingSubtitle: {
+    color: Colors.white,
+    // fontFamily: fonts.PoppinsRegular,
+    fontSize: 16,
   },
 });
 
