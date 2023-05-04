@@ -1,3 +1,5 @@
+import SquadminEvent from './SquadminEvent';
+
 class Person {
   private _userId: string;
   private _firstName: string;

@@ -12,14 +12,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 10,
   },
-  brandingTitle: {
-    color: Colors.white,
-    fontSize: 32,
-  },
-  brandingSubtitle: {
-    color: Colors.white,
-    fontSize: 16,
-  },
   buttonContainer: {
     position: 'absolute',
     bottom: 24,
