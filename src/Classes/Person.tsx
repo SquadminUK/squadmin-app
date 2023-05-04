@@ -53,6 +53,22 @@ class Person {
   set dateOfBirth(value: string) {
     this._dateOfBirth = value;
   }
+
+  get firstName(): string {
+    return this._firstName;
+  }
+
+  set firstName(value: string) {
+    this._firstName = value;
+  }
+
+  get lastName(): string {
+    return this._lastName;
+  }
+
+  set lastName(value: string) {
+    this._lastName = value;
+  }
 }
 
 export default Person;
