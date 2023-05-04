@@ -1,12 +1,12 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Text} from 'react-native';
+import React from "react";
+import { Text } from "react-native";
+import Screen from "../../Components/Screen/Screen";
 
 const SquadsScreen = () => {
   return (
-    <SafeAreaView>
+    <Screen>
       <Text>squads</Text>
-    </SafeAreaView>
+    </Screen>
   );
 };
 

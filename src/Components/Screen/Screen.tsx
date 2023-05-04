@@ -1,14 +1,14 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import style from './Screen.style';
+import {View} from 'react-native';
 
 class Screen extends React.Component {
   render() {
     return (
-      <SafeAreaView style={style.screenContainer}>
+      <View style={style.screenContainer}>
         {/*@ts-ignore*/}
         {this.props.children}
-      </SafeAreaView>
+      </View>
     );
   }
 }

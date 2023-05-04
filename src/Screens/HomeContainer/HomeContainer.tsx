@@ -12,10 +12,10 @@ const HomeContainer = () => {
       <Tab.Screen
         name={'HomeTab'}
         component={HomeScreenStack}
-        options={{headerShown: false, title: 'Home'}}
+        options={{headerShown: false, title: 'Home', }}
       />
-      <Tab.Screen name="Squads" component={SquadScreenStack} />
-      <Tab.Screen name="Settings" component={SettingsScreenStack} />
+      <Tab.Screen name="Squads" component={SquadScreenStack} options={{headerShown: false}} />
+      <Tab.Screen name="Settings" component={SettingsScreenStack} options={{headerShown: false}} />
     </Tab.Navigator>
   );
 };

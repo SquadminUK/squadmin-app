@@ -5,6 +5,7 @@ const screenStyle = StyleSheet.create({
     backgroundColor: '#1B2533',
     height: '100%',
     padding: 12,
+    display: 'flex',
   },
 });
 

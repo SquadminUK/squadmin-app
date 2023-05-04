@@ -1,25 +1,28 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import Screen from '../../Components/Screen/Screen';
 import PrimaryButton from '../../Components/Buttons/PrimaryButton';
 import styles from './GetStarted.style';
-import fonts from '../../fonts/Fonts';
 
 const GetStarted = ({navigation}) => {
   return (
     <Screen>
-      <View style={styles.getStartedContainer}>
-        <Text style={fonts.heading}>Squadmin</Text>
-        <Text style={fonts.subheading}>Organising games effortlessly</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <PrimaryButton
-          title={'Get started'}
-          onPress={() => {
-            navigation.navigate('Auth');
-          }}
-        />
-      </View>
+      <SafeAreaView style={styles.screenContainer}>
+        <View style={styles.brandingContainer}>
+          <Text style={styles.brandingTitle}>Squadmin</Text>
+          <Text style={styles.brandingSubtitle}>
+            Organising games made easier
+          </Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton
+            title={'Get started'}
+            onPress={() => {
+              navigation.navigate('AuthScreen');
+            }}
+          />
+        </View>
+      </SafeAreaView>
     </Screen>
   );
 };
