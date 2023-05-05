@@ -11,6 +11,16 @@ const GlobalStyles = StyleSheet.create({
     color: Colors.white,
     fontSize: 16,
   },
+  paragraphText: {
+    color: Colors.white,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  darkTitle: {
+    color: Colors.primary,
+    textAlign: 'center',
+    fontSize: 32,
+  },
 });
 
 export default GlobalStyles;

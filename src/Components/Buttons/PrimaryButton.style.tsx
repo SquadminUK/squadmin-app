@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     flexGrow: 1,
     justifyContent: 'center',
-    height: 48,
+    maxHeight: 48,
+    minHeight: 48,
   },
   buttonText: {
     color: Colors.white,
