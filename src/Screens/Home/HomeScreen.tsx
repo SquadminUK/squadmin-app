@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {
-  Button,
+  Image,
   SafeAreaView,
   ScrollView,
   Text,
@@ -14,8 +14,13 @@ import GlobalStyles from '../../Styles/GlobalStyles';
 import PrimaryButton from '../../Components/Buttons/PrimaryButton';
 import Modal from 'react-native-modal';
 import {Colors} from '../../Colors/Colors';
+import {Modals} from '../../Styles/Modals.style';
+import {isValidDate} from '../../Utils/Date/DateUtils';
+import 'react-native-get-random-values';
+import {SquadminImage} from '../../images/Image';
 
 const HomeScreen = ({navigation}) => {
+  // @ts-ignore
   const {currentUser, setCurrentUser} = useContext(AuthContext);
   const [isModalVisible, setModalVisible] = useState(false);
   const [enteredDateOfBirth, setEnteredDateOfBirth] = useState('');
@@ -25,7 +30,11 @@ const HomeScreen = ({navigation}) => {
       currentUser.dateOfBirth === '' ||
       currentUser.dateOfBirth === undefined
     ) {
-      // setModalVisible(!isModalVisible);
+      setTimeout(() => {
+        if (!isValidDate(currentUser.dateOfBirth)) {
+          setModalVisible(true);
+        }
+      }, 3000);
     }
   }, [currentUser]);
 
@@ -33,6 +42,7 @@ const HomeScreen = ({navigation}) => {
     <Screen>
       <SafeAreaView style={styles.scrollView}>
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+          <Image source={SquadminImage.squadminLogo} />
           <Text style={GlobalStyles.paragraphText}>
             First time here? If you organise games regularly you could start by
             settings up a Squad to make things easier. Otherwise sit back and
@@ -41,39 +51,54 @@ const HomeScreen = ({navigation}) => {
           </Text>
         </ScrollView>
         <PrimaryButton
+          isDisabled={false}
           title={'Organise a new game'}
           onPress={() => {
-            console.log('organise new game pressed');
-            setModalVisible(true);
+            // setModalVisible(true);
           }}
         />
       </SafeAreaView>
       <Modal
+        animationOutTiming={500}
+        animationOut={'slideOutDown'}
         avoidKeyboard={true}
-        backdropOpacity={1}
         isVisible={isModalVisible}
         coverScreen={false}
-        hasBackdrop={true}>
-        <View
-          style={{
-            backgroundColor: Colors.white,
-            borderRadius: 12,
-            padding: 16,
-          }}>
+        hasBackdrop={true}
+        backdropOpacity={0.3}>
+        <View style={Modals.container}>
           <Text style={GlobalStyles.darkTitle}>Safeguarding</Text>
-          <Text>
+          <Text style={Modals.paragraph}>
             Our system has detected you don't have your date of birth set. To
-            safeguard our younger members we require all users of the app to set
+            safeguard our younger users we require all users of the app to set
             their date of birth.
           </Text>
+          <Text>Please enter your date of birth below</Text>
           <TextInput
+            maxLength={10}
+            style={
+              isValidDate(enteredDateOfBirth) ? styles.input : styles.errorInput
+            }
+            inputMode={'numeric'}
+            placeholder={'DD/MM/YYYY'}
+            placeholderTextColor={Colors.primary}
             value={enteredDateOfBirth}
             onChangeText={text => {
-              console.log(text);
+              setEnteredDateOfBirth(text);
             }}
           />
 
-          <Button title="Hide modal" onPress={() => setModalVisible(false)} />
+          <PrimaryButton
+            isDisabled={!isValidDate(enteredDateOfBirth)}
+            title={'Update'}
+            onPress={() => {
+              setCurrentUser({
+                ...currentUser,
+                dateOfBirth: enteredDateOfBirth,
+              });
+              setModalVisible(false);
+            }}
+          />
         </View>
       </Modal>
     </Screen>

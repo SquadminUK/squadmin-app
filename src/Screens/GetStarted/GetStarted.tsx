@@ -3,20 +3,21 @@ import {Image, SafeAreaView, Text, View} from 'react-native';
 import Screen from '../../Components/Screen/Screen';
 import PrimaryButton from '../../Components/Buttons/PrimaryButton';
 import styles from './GetStarted.style';
-import SquadminLogo from '../../images/squadmin-logo.png';
 import GlobalStyles from '../../Styles/GlobalStyles';
 import {useAuth0} from 'react-native-auth0';
 import {AuthContext} from '../../Contexts/AuthContext';
+import {SquadminImage} from '../../images/Image';
 
 // @ts-ignore
 const GetStarted = ({navigation}) => {
   const {user} = useAuth0();
+  // @ts-ignore
   const {currentUser, setCurrentUser} = useContext(AuthContext);
   return (
     <Screen>
       <SafeAreaView style={styles.screenContainer}>
         <View style={styles.brandingContainer}>
-          <Image source={SquadminLogo} />
+          <Image source={SquadminImage.squadminLogo} />
           <Text style={GlobalStyles.brandingTitle}>Squadmin</Text>
           <Text style={GlobalStyles.brandingSubtitle}>
             Organising games effortlessly
@@ -24,6 +25,7 @@ const GetStarted = ({navigation}) => {
         </View>
         <View style={styles.buttonContainer}>
           <PrimaryButton
+            isDisabled={false}
             title={'Get started'}
             onPress={() => {
               if (user) {
